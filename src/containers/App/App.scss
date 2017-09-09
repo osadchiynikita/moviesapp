@@ -1,0 +1,36 @@
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  background: #3A1C71;
+  background: linear-gradient(to left, #FFAF7B, #D76D77, #3A1C71);
+}
+
+.content {
+  display: flex;
+  width: 960px;
+  border-radius: 10px;
+  height: calc(100vh - 200px);
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.15);
+}
+
+.sidebar {
+  overflow: auto;
+  height: 100%;
+  width: 300px;
+  border-radius: 10px 0 0 10px;
+}
+
+.main {
+  width: 660px;
+
+  &--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
