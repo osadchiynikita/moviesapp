@@ -41,8 +41,8 @@ module.exports = {
   resolve: {
     modulesDirectories: [
       'src',
-      'node_modules',
-      'src/styles'
+      'src/styles',
+      'node_modules'
     ],
     extensions: ['', '.json', '.js', '.jsx']
   },
@@ -66,10 +66,14 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass'
+        loader: 'style!css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass!sass-resources'
       },
       { test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
       { test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/, loader: 'file' }
     ]
-  }
+  },
+  sassResources: [
+    'src/styles/abstracts/variables.scss',
+    'src/styles/abstracts/mixins.scss'
+  ]
 };

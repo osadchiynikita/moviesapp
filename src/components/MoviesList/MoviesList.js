@@ -9,7 +9,7 @@ const MoviesList = ({ movies, loadMore }) => {
       <div className="movies-list__body">
         {movies.results && Array.isArray(movies.results) && movies.results.map(movie => {
           return (
-            <Link className="movies-list__item" to={`/movies/${movie.id}`} key={movie.id}>
+            <Link className="movies-list__item" to={`/movie/${movie.id}`} key={movie.id}>
               <img src={`https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`} />
               <div className="movies-list__item-content">
                 <span>{movie.title}</span>

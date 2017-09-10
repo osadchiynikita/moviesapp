@@ -27,3 +27,10 @@ button {
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
 }
+
+.u-centered-a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

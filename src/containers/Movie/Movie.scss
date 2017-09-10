@@ -1,6 +1,10 @@
 .movie-card {
   padding: 50px;
   position: relative;
+
+  @include breakpoint(xs) {
+    padding: 25px;
+  }
 }
 
 .movie-poster {

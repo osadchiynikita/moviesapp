@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { bindActionCreators } from 'redux';
@@ -44,9 +45,9 @@ export default class App extends Component {
   }
 
   render() {
-    const { auth, movies, updateMovies, children } = this.props; // eslint-disable-line no-shadow
+    const { movies, updateMovies, children } = this.props; // eslint-disable-line no-shadow
 
-    if (movies.loading || !movies.loaded || auth.loading || !auth.loaded) {
+    if (movies.loading || !movies.loaded) {
       return (
         <div className="app-container">
           <Loader />
@@ -69,11 +70,26 @@ export default class App extends Component {
               {children}
             </main>
           ) : (
-            <main className="main main--empty">
-              Select movie
+            <main className="main">
+              <div className="main__empty">
+                Please, select movie from the list
+              </div>
             </main>
           )}
         </div>
+
+        {children && (
+          <div className="mobile-details">
+            <div className="mobile-details__header">
+              <Link className="mobile-details__back-link" to="/">
+                Back
+              </Link>
+            </div>
+            <div className="mobile-details__content">
+              {children}
+            </div>
+          </div>
+        )}
       </div>
     );
   }

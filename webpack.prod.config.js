@@ -48,6 +48,7 @@ module.exports = {
   resolve: {
     modulesDirectories: [
       'src',
+      'src/styles',
       'node_modules'
     ],
     extensions: ['', '.json', '.js', '.jsx']
@@ -69,7 +70,7 @@ module.exports = {
       loader: 'json'
     }, {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]---[local]---[hash:base64:5]!sass')
+      loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]---[local]---[hash:base64:5]!sass!sass-resources')
     }, {
       test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
       loader: 'url?limit=10000&mimetype=application/font-woff'
@@ -80,5 +81,9 @@ module.exports = {
   },
   postcss: [
     require('autoprefixer')
+  ],
+  sassResources: [
+    './src/styles/abstracts/variables.scss',
+    './src/styles/abstracts/mixins.scss'
   ]
 };

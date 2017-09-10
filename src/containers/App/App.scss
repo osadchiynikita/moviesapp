@@ -1,21 +1,26 @@
 .app-container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  height: 100vh;
-  background: #3A1C71;
-  background: linear-gradient(to left, #FFAF7B, #D76D77, #3A1C71);
+  min-height: 100vh;
+  background: #3a1c71;
+  background: linear-gradient(to left, #ffaf7b, #d76d77, #3a1c71);
 }
 
 .content {
   display: flex;
-  width: 960px;
+  max-width: 960px;
   border-radius: 10px;
   height: calc(100vh - 200px);
   background: #ffffff;
-  border: 1px solid #000000;
   box-shadow: 0 0 2px 2px rgba(0,0,0,0.15);
+
+  @include breakpoint(xs) {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
 }
 
 .sidebar {
@@ -23,14 +28,69 @@
   height: 100%;
   width: 300px;
   border-radius: 10px 0 0 10px;
+
+  @include breakpoint(xs) {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
 }
 
 .main {
   width: 660px;
 
-  &--empty {
+  &__empty {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  @include breakpoint(xs) {
+    display: none;
+  }
+}
+
+.mobile-details {
+  z-index: 5;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: showDetails 400ms ease both;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 25px;
+    background: #000000;
+  }
+
+  &__back-link {
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+@keyframes showDetails {
+  from {
+    transform: translate3d(100vw, 0, 0);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
   }
 }
